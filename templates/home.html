@@ -36,7 +36,7 @@
 
 </head>
 
-<body class="font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, " Liberation Mono", "Courier New" ,
+<body class="overflow-x-hidden font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, " Liberation Mono", "Courier New" ,
     monospace;">
     <div class="bg-white relative animate-fade animate-duration-[2000ms]">
         <header class="absolute inset-x-0 top-0 z-50">
@@ -167,15 +167,33 @@
                 </div>
             </div>
 
-            <div class="img-animation max-w-6xl mx-auto shadow-2xl rounded-2xl hidden sm:block">
-                <img class="h-auto max-w-full rounded-xl" src="img/home.png" alt="image description">
+            <script>
+              // Enable ScrollTrigger
+              gsap.registerPlugin(ScrollTrigger);
+            
+              gsap.to(".hero", {
+                opacity: 0,
+                scale: 0.5,
+                duration: 1,
+                scrollTrigger: {
+                  trigger: ".hero",
+                  start: "top 12%", // Adjust this value based on when you want the animation to start
+                  end: "bottom top",
+                  scrub: true,
+                  markers: false,
+                },
+              });
+            </script>
+
+            <div class="img-animation max-w-6xl mx-auto sm:max-w-4xl shadow-2xl rounded-2xl hidden sm:block">
+                <img class="h-auto max-w-full sm:max-w-4xl rounded-xl" src="img/home.png" alt="image description">
             </div>
             
             <div class="img-animation flex items-center justify-center sm:hidden">
                 <img src="img/mobile2.webp" alt="Mobile Image" class="border-0 max-w-52 h-max object-cover">
             </div>
                     
-            
+             
             
             
             
@@ -328,7 +346,7 @@
         });
       
         // Add animation to make the above divs invisible and increase the size
-        tl.to(".img-animation", {scale: 1.2 })
+        tl.to(".img-animation", {scale: 1.25 })
         .to(".hero", { opacity: 0 }, 0);
 
       </script>
