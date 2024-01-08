@@ -168,22 +168,32 @@
             </div>
 
             <script>
-              // Enable ScrollTrigger
-              gsap.registerPlugin(ScrollTrigger);
-            
-              gsap.to(".hero", {
-                opacity: 0,
-                scale: 0.5,
-                duration: 1,
-                scrollTrigger: {
-                  trigger: ".hero",
-                  start: "top 12%", // Adjust this value based on when you want the animation to start
-                  end: "bottom top",
-                  scrub: true,
-                  markers: false,
-                },
-              });
-            </script>
+  document.addEventListener("DOMContentLoaded", function () {
+    // Slide up animation when the page is loaded
+    gsap.from(".hero", {
+      y: 100,
+      duration: 2,
+      ease: "power4.out",
+    });
+
+    // Enable ScrollTrigger
+    gsap.registerPlugin(ScrollTrigger);
+
+    // Invisibility and scaling animation as you scroll past the hero
+    gsap.to(".hero", {
+      opacity: 0,
+      scale: 0.5,
+      duration: 1,
+      scrollTrigger: {
+        trigger: ".hero",
+        start: "top 12%", // Adjust this value based on when you want the animation to start
+        end: "bottom top",
+        scrub: true,
+        markers: false,
+      },
+    });
+  });
+</script>
 
             <div class="img-animation max-w-6xl mx-auto sm:max-w-4xl shadow-2xl rounded-2xl hidden sm:block">
                 <img class="h-auto max-w-full sm:max-w-4xl rounded-xl" src="img/home.png" alt="image description">
