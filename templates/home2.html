@@ -5,9 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tailwind Food</title>
     <link rel="stylesheet" href="css/styles.css">
+    <script src="https://cdn.tailwindcss.com"></script>
     <style>
         * {
-            {% comment %} border: 1px solid red; {% endcomment %}
+            border: 1px solid red;
         }
 
         @keyframes bubble {
@@ -32,7 +33,7 @@
 
 <body class="font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, " Liberation Mono", "Courier New" ,
     monospace;">
-    <div class="bg-white relative">
+    <div class="bg-white relative animate-fade animate-duration-[2000ms]">
         <header class="absolute inset-x-0 top-0 z-50">
             <nav class="flex items-center justify-between py-6 px-8 lg:px-8" aria-label="Global">
                 <div class="flex lg:flex-1">
@@ -85,7 +86,7 @@
 
 
                 <div class="hidden lg:flex lg:flex-1 lg:justify-end">
-                    <a href="#" class="text-sm font-semibold leading-6 text-gray-900">Get started <span
+                    <a href="#" class="text-sm font-semibold leading-6 text-gray-900 hover:text-indigo-600">Get started<span
                             aria-hidden="true">&rarr;</span></a>
                 </div>
             </nav>
@@ -142,11 +143,11 @@
             </div>
             <div class="mx-auto max-w-2xl py-28 sm:py-48 lg:py-56">
                 <div class="text-center">
-                    <h1 class="text-4xl sm:text-2xl font-bold tracking-tight text-gray-900 lg:text-6xl"> <span
+                    <h1 class="text-4xl sm:text-2xl font-bold tracking-tight text-gray-900 lg:text-6xl animate-fade-up animate-duration-[1000ms] animate-ease-linear"> <span
                             class="text-indigo-600">Attendify</span><br>
-                        Revolutionizing <span class="text-indigo-600">Academia</span> with a <span
+                        Revolutionizing <span class="text-indigo-600 ">Academia</span> with a <span
                             class="text-indigo-600">Click!</span></h1>
-                    <p class="mt-6 text-lg leading-8 text-gray-600">Streamlined student attendance, grades
+                    <p class="mt-6 text-lg leading-8 text-gray-600 animate-fade-up animate-duration-[1200ms] animate-ease-linear">Streamlined student attendance, grades
                         tracking,
                         and
                         real-time updates for parents.</p>

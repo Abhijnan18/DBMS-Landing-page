@@ -848,6 +848,60 @@ video {
   animation: bounce 1s infinite;
 }
 
+@keyframes jump-in {
+  0% {
+    transform: scale(0%);
+  }
+
+  80% {
+    transform: scale(120%);
+  }
+
+  100% {
+    transform: scale(100%);
+  }
+}
+
+.animate-jump-in {
+  animation: jump-in .5s both;
+}
+
+@keyframes shake {
+  0% {
+    transform: translateX(0rem);
+  }
+
+  25% {
+    transform: translateX(-1rem);
+  }
+
+  75% {
+    transform: translateX(1rem);
+  }
+
+  100% {
+    transform: translateX(0rem);
+  }
+}
+
+.animate-shake {
+  animation: shake .5s both;
+}
+
+@keyframes fade {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+.animate-fade {
+  animation: fade 1s both;
+}
+
 @keyframes fade-up {
   0% {
     opacity: 0;
@@ -1241,12 +1295,52 @@ video {
   animation-duration: 4000ms;
 }
 
-.animate-infinite {
-  animation-iteration-count: infinite;
+.animate-duration-\[3000ms\] {
+  animation-duration: 3000ms;
+}
+
+.animate-duration-\[5000ms\] {
+  animation-duration: 5000ms;
+}
+
+.animate-duration-\[2000ms\] {
+  animation-duration: 2000ms;
+}
+
+.animate-duration-\[4800ms\] {
+  animation-duration: 4800ms;
+}
+
+.animate-duration-\[3800ms\] {
+  animation-duration: 3800ms;
+}
+
+.animate-duration-\[1000ms\] {
+  animation-duration: 1000ms;
+}
+
+.animate-duration-\[1800ms\] {
+  animation-duration: 1800ms;
+}
+
+.animate-duration-\[1200ms\] {
+  animation-duration: 1200ms;
+}
+
+.animate-fill-forwards {
+  animation-fill-mode: forwards;
+}
+
+.animate-fill-backwards {
+  animation-fill-mode: backwards;
 }
 
 .animate-once {
   animation-iteration-count: 1;
+}
+
+.animate-ease-linear {
+  animation-timing-function: linear;
 }
 
 .animate-ease-in-out {
@@ -1263,9 +1357,18 @@ video {
   background-color: rgb(99 102 241 / var(--tw-bg-opacity));
 }
 
+.hover\:text-lg:hover {
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+}
+
 .hover\:text-indigo-600:hover {
   --tw-text-opacity: 1;
   color: rgb(79 70 229 / var(--tw-text-opacity));
+}
+
+.hover\:text-opacity-100:hover {
+  --tw-text-opacity: 1;
 }
 
 .focus-visible\:outline:focus-visible {
