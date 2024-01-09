@@ -138,16 +138,41 @@
             document.addEventListener("DOMContentLoaded", function () {
               const menu = document.getElementById("menu");
               const hamburger = document.getElementById("hamburger");
+              const closeButton = document.getElementById("Close");
           
-              hamburger.addEventListener("click", function () {
-                gsap.fromTo(menu, { x: "100%" }, {
+              // Initial state of the menu
+              gsap.set(menu, { x: "100%", display: "none" });
+          
+              // Slide in from the right animation
+              function slideInFromRight() {
+                gsap.to(menu, {
                   x: "0%",
+                  display: "block",
                   duration: 1,
                   ease: "power4.out",
                 });
-              });
+              }
+          
+              // Slide in from the left animation
+              function slideInFromLeft() {
+                gsap.to(menu, {
+                  x: "100%",
+                  display: "none",
+                  duration: 1,
+                  ease: "power4.out",
+                });
+              }
+          
+              hamburger.addEventListener("click", slideInFromRight);
+              closeButton.addEventListener("click", slideInFromLeft);
             });
           </script>
+
+         
+
+          
+
+          
 
         <div class="relative isolate px-6 pt-14 lg:px-8">
             <div class="absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80"
@@ -498,47 +523,7 @@
         });
     </script>
 
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            var closeButton = document.getElementById("Close");
-            var smallScreenElements = document.querySelector('.small-screen');
-            var largeScreenElements = document.querySelectorAll('.large-screen');
 
-            closeButton.addEventListener("click", function () {
-                // Toggle classes for small-screen elements
-                smallScreenElements.classList.toggle('md:hidden');
-                smallScreenElements.classList.toggle('sm:hidden');
-                smallScreenElements.classList.toggle('md:block');
-                smallScreenElements.classList.toggle('sm:block');
-
-                // Toggle classes for large-screen elements
-                largeScreenElements.forEach(function (element) {
-                    element.classList.toggle('lg:hidden');
-                    element.classList.toggle('md:block');
-                    element.classList.toggle('sm:block');
-                });
-            });
-        });
-    </script>
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            var closeButton = document.getElementById("Close");
-            var smallScreenElements = document.querySelector('.small-screen');
-            var largeScreenElements = document.querySelectorAll('.large-screen');
-
-            closeButton.addEventListener("click", function () {
-                // Toggle classes for small-screen elements
-                smallScreenElements.classList.toggle('hidden');
-
-                // Toggle classes for large-screen elements
-                largeScreenElements.forEach(function (element) {
-                    element.classList.toggle('lg:hidden');
-                    element.classList.toggle('md:block');
-                    element.classList.toggle('sm:block');
-                });
-            });
-        });
-    </script>
 </body>
 
 </html>
