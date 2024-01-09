@@ -11,11 +11,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.4/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.4/ScrollTrigger.min.js"></script>
     <style>
-        * {
-            border: 1px solid red;
-        }
-
-        @keyframes bubble {
+            @keyframes bubble {
             0% {
                 transform: scale(0);
                 opacity: 0;
@@ -101,14 +97,13 @@
             <div class="small-screen hidden  md:hidden sm:hidden" role="dialog" aria-modal="true">
                 <!-- Background backdrop, show/hide based on slide-over state. -->
                 <div class="fixed inset-0 z-50"></div>
-                <div
-                    class="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
+                <div id="menu" class="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
                     <div class="flex items-center justify-between">
                         <a href="#" class="-m-1.5 p-1.5">
                             <span class="sr-only">Your Company</span>
-                            <img class="h-8 w-auto" src="img/Untitled.svg" alt="">
+                            <img class="h-10 w-auto" src="img/Untitled.svg" alt="">
                         </a>
-                        <button type="button" class="-m-2.5 rounded-md p-2.5 text-gray-700" id="Close">
+                        <button id="Close" type="button" class="-m-2.5 rounded-md p-2.5 text-gray-700">
                             <span class="sr-only">Close menu</span>
                             <svg class="h-7 w-7 text-indigo-600" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                                 stroke="currentColor" aria-hidden="true">
@@ -146,9 +141,9 @@
                     style="clip-path: polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)">
                 </div>
             </div>
-            <div class="hero mx-auto max-w-2xl py-28 sm:py-48 lg:py-56">
+            <div class=" hero mx-auto max-w-2xl py-28 sm:py-48 lg:py-56">
                 <div class="text-center">
-                    <h1 class="text-4xl sm:text-2xl font-bold tracking-tight text-gray-900 lg:text-6xl animate-fade-up animate-duration-[1000ms] animate-ease-linear"> <span
+                    <h1 class="text-4xl font-bold tracking-tight text-gray-900 lg:text-6xl animate-fade-up animate-duration-[1000ms] animate-ease-linear"> <span
                             class="text-indigo-600">Attendify</span><br>
                         Revolutionizing <span class="text-indigo-600 ">Academia</span> with a <span
                             class="text-indigo-600">Click!</span></h1>
@@ -195,8 +190,8 @@
   });
 </script>
 
-            <div class="img-animation max-w-6xl mx-auto sm:max-w-4xl shadow-2xl rounded-2xl hidden sm:block">
-                <img class="h-auto max-w-full sm:max-w-4xl rounded-xl" src="img/home.png" alt="image description">
+            <div class="img-animation max-w-6xl mx-auto sm:max-w-5xl shadow-2xl rounded-2xl hidden sm:block">
+                <img class="h-auto max-w-full sm:max-w-5xl rounded-xl" src="img/home.png" alt="image description">
             </div>
             
             <div class="img-animation flex items-center justify-center sm:hidden">
@@ -231,7 +226,7 @@
         </div>
     </div>
 
-    <div class="bg-white py-24 sm:py-60 ">
+    <div class="bg-white py-40 sm:py-60 overflow-x-hidden">
         <div class="mx-auto max-w-7xl px-6 lg:px-8">
             <div id="featureDiv" class="mx-auto max-w-2xl lg:text-center">
                 <h2 class="text-base font-semibold leading-7 text-indigo-600">Deploy faster</h2>
@@ -350,14 +345,13 @@
           scrollTrigger: {
             trigger: ".img-animation", // Change this selector to the appropriate one for your use case
             start: "top center", // Adjust the starting position as needed
-            end: "bottom center", // Adjust the ending position as needed
+            end: "bottom", // Adjust the ending position as needed
             scrub: true, // Smooth scrolling effect
           }
         });
       
         // Add animation to make the above divs invisible and increase the size
-        tl.to(".img-animation", {scale: 1.25 })
-        .to(".hero", { opacity: 0 }, 0);
+        tl.to(".img-animation", {scale: 1.3 });
 
       </script>
 
@@ -391,7 +385,7 @@
           duration: 1,
           ease: "power4.out",
           scrollTrigger: {
-            trigger: "#feature1",
+            trigger: "#featureDiv",
             start: "top 80%",
             end: "top 30%",
             scrub: 1,
@@ -405,7 +399,7 @@
           duration: 1,
           ease: "power4.out",
           scrollTrigger: {
-            trigger: "#feature2",
+            trigger: "#feature1",
             start: "top 80%",
             end: "top 30%",
             scrub: 1,
@@ -419,7 +413,7 @@
           duration: 1,
           ease: "power4.out",
           scrollTrigger: {
-            trigger: "#feature3",
+            trigger: "#feature2",
             start: "top 80%",
             end: "top 30%",
             scrub: 1,
@@ -433,7 +427,7 @@
           duration: 1,
           ease: "power4.out",
           scrollTrigger: {
-            trigger: "#feature4",
+            trigger: "#feature3",
             start: "top 80%",
             end: "top 30%",
             scrub: 1,
@@ -441,8 +435,6 @@
           },
         });
       </script>
-
-
 
 
 
