@@ -1,0 +1,35 @@
+This code can slide in and slide out menu bar, but can inly do it for first time:
+
+            <script>
+            document.addEventListener("DOMContentLoaded", function () {
+              const menu = document.getElementById("menu");
+              const hamburger = document.getElementById("hamburger");
+              const closeButton = document.getElementById("Close");
+          
+              // Initial state of the menu
+              gsap.set(menu, { x: "100%", display: "none" });
+          
+              // Slide in from the right animation
+              function slideInFromRight() {
+                gsap.to(menu, {
+                  x: "0%",
+                  display: "block",
+                  duration: 1,
+                  ease: "power4.out",
+                });
+              }
+          
+              // Slide in from the left animation
+              function slideInFromLeft() {
+                gsap.to(menu, {
+                  x: "100%",
+                  display: "none",
+                  duration: 1,
+                  ease: "power4.out",
+                });
+              }
+          
+              hamburger.addEventListener("click", slideInFromRight);
+              closeButton.addEventListener("click", slideInFromLeft);
+            });
+          </script> 
