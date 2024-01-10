@@ -33,3 +33,7 @@ This code can slide in and slide out menu bar, but can inly do it for first time
               closeButton.addEventListener("click", slideInFromLeft);
             });
           </script> 
+
+
+
+          npx tailwindcss -i tailwind.css -o ./templates/css/styles.css --watch
