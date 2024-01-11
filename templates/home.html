@@ -90,7 +90,7 @@
 
 
 	<div id="con">
-		<div class="bg-white relative animate-fade animate-duration-[2000ms]">
+		<div class="bg-white relative animate-fade animate-duration-[1000ms]">
 			<header class="absolute inset-x-0 top-0 z-50">
 				<nav class="flex items-center justify-between py-6 px-8 lg:px-8" aria-label="Global">
 					<div class="flex lg:flex-1">
@@ -284,6 +284,12 @@
 							ease: "power4.out",
 						});
 
+						gsap.from(".image_div", {
+							y: 100,
+							duration: 2,
+							ease: "power4.out",
+						});
+
 						// Enable ScrollTrigger
 						gsap.registerPlugin(ScrollTrigger);
 
@@ -302,10 +308,6 @@
 						});
 					});
 				</script>
-
-
-
-
 
 
 
