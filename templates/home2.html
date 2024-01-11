@@ -1,318 +1,214 @@
 <html lang="en">
 
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Tailwind Food</title>
-	<link rel="stylesheet" href="css/styles.css">
-	<script src="https://unpkg.com/gsap@3.9.1/dist/gsap.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.4/gsap.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.4/gsap.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.4/ScrollTrigger.min.js"></script>
-
-	<!-- Google Fonts -->
-	<link rel="preconnect" href="https://fonts.googleapis.com">
-	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap" rel="stylesheet">
-
-	<style>
-		body {
-			background: #fff
-		}
-
-		svg {
-			font-family: 'Poppins', sans-serif;
-			position: absolute;
-			width: 100%;
-			height: 100%;
-		}
-
-		svg text {
-			text-transform: uppercase;
-			animation: stroke 5s infinite alternate;
-			stroke-width: 2;
-			stroke: rgb(29 78 216);
-			font-size: 140px;
-		}
-
-		@keyframes stroke {
-			0% {
-				fill: rgba(72, 138, 20, 0);
-				stroke: rgb(29 78 216);
-				stroke-dashoffset: 25%;
-				stroke-dasharray: 0 50%;
-				stroke-width: 2;
-			}
-
-			70% {
-				fill: rgba(72, 138, 20, 0);
-				stroke: rgb(29 78 216);
-			}
-
-			80% {
-				fill: rgba(72, 138, 20, 0);
-				stroke: rgb(29 78 216);
-				stroke-width: 3;
-			}
-
-			100% {
-				fill: rgb(37 99 235);
-				stroke: rgb(29 78 216);
-				stroke-dashoffset: -25%;
-				stroke-dasharray: 50% 0;
-				stroke-width: 0;
-			}
-		}
-
-		.overlay {
-			position: fixed;
-			top: 100%;
-			left: 0;
-			width: 100%;
-			height: 100%;
-			z-index: 1;
-		}
-	</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tailwind Food</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="https://unpkg.com/gsap@3.9.1/dist/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.4/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.4/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.4/ScrollTrigger.min.js"></script>
 </head>
 
-<body class="overflow-x-hidden font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, " Liberation
-	Mono", "Courier New" , monospace;">
+<body class="overflow-x-hidden font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, " Liberation Mono", "Courier New" ,
+    monospace;">
+    <div class="bg-white relative animate-fade animate-duration-[2000ms]">
+        <header class="absolute inset-x-0 top-0 z-50">
+            <nav class="flex items-center justify-between py-6 px-8 lg:px-8" aria-label="Global">
+                <div class="flex lg:flex-1">
+                    <a href="#">
+                        <span class="sr-only">Your Company</span>
+                        <!-- <h1 class="text-2xl text-indigo-600 uppercase font-semibold">Attendify</h1> -->
+                        <!-- <h1 class="text-3xl uppercase font-extrabold bg-gradient-to-br from-[#01e410] to-[#0397fa] text-transparent bg-clip-text">Attendify</h1> -->
+                        <img class="h-10 w-auto" src="img/Untitled.svg" alt="">
+                    </a>
+                </div>
+                <div class="large-screen lg:hidden md:block sm:block">
+                    <button type="button" id="hamburger"
+                        class="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700">
+                        <span class="sr-only">Open main menu</span>
+                        <svg class="h-7 w-7 text-indigo-600" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+                            aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+                        </svg>
+                    </button>
+                </div>
+
+                <div class="hidden lg:flex lg:gap-x-12">
+                  <a href="#" class="text-base font-semibold leading-6 text-gray-900 relative group inline-block transition-transform transform-gpu hover:translate-y-[-2px] hover:text-indigo-600">
+                    Product
+                    <span class="absolute bottom-[-1rem] left-1/2 transform -translate-x-1/2 w-3 h-3 bg-indigo-600 rounded-full opacity-0 group-hover:opacity-100 animate-bubble animate-wiggle"></span>
+                </a>
+
+                    <a href="#" class="text-base font-semibold leading-6 text-gray-900 relative group inline-block transition-transform transform-gpu hover:translate-y-[-2px] hover:text-indigo-600">
+                      Features
+                        <span class="absolute bottom-[-1rem] left-1/2 transform -translate-x-1/2 w-3 h-3 bg-indigo-600 rounded-full opacity-0 group-hover:opacity-100 animate-bubble"></span>
+                      </a>
+
+                    <a href="#" class="text-base font-semibold leading-6 text-gray-900 relative group inline-block transition-transform transform-gpu hover:translate-y-[-2px] hover:text-indigo-600">
+                      Marketplace
+                        <span class="absolute bottom-[-1rem] left-1/2 transform -translate-x-1/2 w-3 h-3 bg-indigo-600 rounded-full opacity-0 group-hover:opacity-100 animate-bubble"></span>
+                      </a>
+
+                    <a href="#" class="text-base font-semibold leading-6 text-gray-900 relative group inline-block transition-transform transform-gpu hover:translate-y-[-2px] hover:text-indigo-600">
+                      Company
+                        <span class="absolute bottom-[-1rem] left-1/2 transform -translate-x-1/2 w-3 h-3 bg-indigo-600 rounded-full opacity-0 group-hover:opacity-100 animate-bubble"></span>
+                      </a>
+                </div>
 
 
 
+                <div class="hidden lg:flex lg:flex-1 lg:justify-end">
+                    <a href="#" class="text-sm font-semibold leading-6 text-gray-900 hover:text-indigo-600 hover:translate-y-[-2px] transition-transform duration-300 ease-in-out">Get started <span
+                    class="hover:animate-shake animate-infinite animate-ease-in-out"        aria-hidden="true">&rarr;</span></a>
+                </div>
+            </nav>
+            <!-- <button class="transition ease-in-out delay-150 hover:text-indigo-600 duration-300 ..."> -->
+
+            <!-- Mobile menu, show/hide based on menu open state. -->
+            <div class="small-screen hidden  md:hidden sm:hidden" role="dialog" aria-modal="true">
+                <!-- Background backdrop, show/hide based on slide-over state. -->
+                <div class="fixed inset-0 z-50"></div>
+                <div id="menu" class="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
+                    <div class="flex items-center justify-between">
+                        <a href="#" class="-m-1.5 p-1.5">
+                            <span class="sr-only">Your Company</span>
+                            <img class="h-10 w-auto" src="img/Untitled.svg" alt="">
+                        </a>
+                        <button id="Close" type="button" class="-m-2.5 rounded-md p-2.5 text-gray-700">
+                            <span class="sr-only">Close menu</span>
+                            <svg class="h-7 w-7 text-indigo-600" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                stroke="currentColor" aria-hidden="true">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="mt-6 flow-root">
+                        <div class="-my-6 divide-y divide-gray-500/10">
+                            <div class="space-y-2 py-6">
+                                <a href="#"
+                                    class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50 hover:text-indigo-600 transition duration-300 ease-in-out">Product</a>
+                                <a href="#"
+                                    class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50 hover:text-indigo-600 transition duration-300 ease-in-out">Features</a>
+                                <a href="#"
+                                    class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50 hover:text-indigo-600 transition duration-300 ease-in-out">Marketplace</a>
+                                <a href="#"
+                                    class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50 hover:text-indigo-600 transition duration-300 ease-in-out">Company</a>
+                            </div>
+                            <div class="py-6">
+                                <a href="#"
+                                    class="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-indigo-600 hover:bg-gray-50">Get
+                                    started <span aria-hidden="true">&rarr;</span></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+       
+          <script>
+            document.addEventListener("DOMContentLoaded", function () {
+              const menu = document.getElementById("menu");
+              const hamburger = document.getElementById("hamburger");
+          
+              hamburger.addEventListener("click", function () {
+                gsap.fromTo(menu, { x: "100%" }, {
+                  x: "0%",
+                  duration: 0.5,
+                  ease: "power4.out",
+                });
+              });
+            });
+          </script>
+         
+
+          
+
+          
+
+        <div class="relative isolate px-6 pt-14 lg:px-8">
+            <div class="absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80"
+                aria-hidden="true">
+                <div class="relative left-[calc(50%-11rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 rotate-[30deg] bg-gradient-to-tr from-[#ff80b5] to-[#9089fc] opacity-30 sm:left-[calc(50%-30rem)] sm:w-[72.1875rem]"
+                    style="clip-path: polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)">
+                </div>
+            </div>
+            <div class=" hero mx-auto max-w-2xl py-28 sm:py-48 lg:py-56">
+                <div class="text-center">
+                    <h1 class="text-4xl font-bold tracking-tight text-gray-900 lg:text-6xl animate-fade-up animate-duration-[1000ms] animate-ease-linear"> <span class="bg-gradient-to-r from-indigo-500 to-indigo-700 text-transparent bg-clip-text">Attendify</span>
+                      <br>
+                        Revolutionizing <span class="bg-gradient-to-r from-indigo-500 to-indigo-700 text-transparent bg-clip-text">Academia</span> with a <span
+                            class="bg-gradient-to-r from-indigo-500 to-indigo-700 text-transparent bg-clip-text">Click!</span></h1>
+                    <p class="mt-6 text-lg leading-8 text-gray-600 animate-fade-up animate-duration-[1200ms] animate-ease-linear">Streamlined student attendance, grades
+                        tracking,
+                        and
+                        real-time updates for parents.</p>
+                    <div class="mt-10 flex items-center justify-center gap-x-6">
+                      <a href="#"
+   class="rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 hover:translate-y-[-5px] transition-transform duration-300 ease-in-out">
+   Get started
+</a>
+
+                   
+                        <a href="#" class="text-sm font-semibold leading-6 text-gray-900">Learn more &nbsp;<span
+                                aria-hidden="true" class="animate-bounce 10s inline-block">&#8595;</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <script>
+  document.addEventListener("DOMContentLoaded", function () {
+    // Slide up animation when the page is loaded
+    gsap.from(".hero", {
+      y: 100,
+      duration: 2,
+      ease: "power4.out",
+    });
+
+    // Enable ScrollTrigger
+    gsap.registerPlugin(ScrollTrigger);
+
+    // Invisibility and scaling animation as you scroll past the hero
+    gsap.to(".hero", {
+      opacity: 0,
+      scale: 0.6,
+      duration: 1,
+      scrollTrigger: {
+        trigger: ".hero",
+        start: "top 12%", // Adjust this value based on when you want the animation to start
+        end: "bottom top",
+        scrub: true,
+        markers: false,
+      },
+    });
+  });
+</script>
+
+            <div class="img-animation max-w-6xl mx-auto  shadow-2xl rounded-2xl hidden lg:block md:hidden">
+                <img class="h-auto max-w-full rounded-xl" src="img/home.png" alt="image description">
+            </div>
+            
+            <div class="img-animation flex items-center justify-center sm:hidden">
+                <img src="img/mobile2.webp" alt="Mobile Image" class="border-0 max-w-52 h-max object-cover">
+            </div>
+
+            <div class="hidden md:flex img-animation img-animation max-w-6xl mx-auto items-center justify-center lg:hidden">
+                <img class="h-auto max-w-lg rounded-xl" src="img/tab.png" alt="Tab Image" class="border-0 max-w-52 h-max object-cover">
+            </div>
 
 
 
+                    
+             
+            
+            
+            
 
-
-
-
-
-	<div id="con">
-		<div class="bg-white relative animate-fade animate-duration-[1000ms]">
-			<header class="absolute inset-x-0 top-0 z-50">
-				<nav class="flex items-center justify-between py-6 px-8 lg:px-8" aria-label="Global">
-					<div class="flex lg:flex-1">
-						<a href="#">
-							<span class="sr-only">Your Company</span>
-							<!-- <h1 class="text-2xl text-indigo-600 uppercase font-semibold">Attendify</h1> -->
-							<!-- <h1 class="text-3xl uppercase font-extrabold bg-gradient-to-br from-[#01e410] to-[#0397fa] text-transparent bg-clip-text">Attendify</h1> -->
-							<img class="h-10 w-auto" src="img/Untitled.svg" alt="">
-						</a>
-					</div>
-					<div class="large-screen lg:hidden md:block sm:block">
-						<button type="button" id="hamburger"
-							class="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700">
-							<span class="sr-only">Open main menu</span>
-							<svg class="h-7 w-7 text-indigo-600" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-								stroke="currentColor" aria-hidden="true">
-								<path stroke-linecap="round" stroke-linejoin="round"
-									d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
-							</svg>
-						</button>
-					</div>
-
-					<div class="hidden lg:flex lg:gap-x-12">
-						<a href="#"
-							class="text-base font-semibold leading-6 text-gray-900 relative group inline-block transition-transform transform-gpu hover:translate-y-[-2px] hover:text-indigo-600">
-							Product
-							<span
-								class="absolute bottom-[-1rem] left-1/2 transform -translate-x-1/2 w-3 h-3 bg-indigo-600 rounded-full opacity-0 group-hover:opacity-100 animate-bubble animate-wiggle"></span>
-						</a>
-
-						<a href="#"
-							class="text-base font-semibold leading-6 text-gray-900 relative group inline-block transition-transform transform-gpu hover:translate-y-[-2px] hover:text-indigo-600">
-							Features
-							<span
-								class="absolute bottom-[-1rem] left-1/2 transform -translate-x-1/2 w-3 h-3 bg-indigo-600 rounded-full opacity-0 group-hover:opacity-100 animate-bubble"></span>
-						</a>
-
-						<a href="#"
-							class="text-base font-semibold leading-6 text-gray-900 relative group inline-block transition-transform transform-gpu hover:translate-y-[-2px] hover:text-indigo-600">
-							Marketplace
-							<span
-								class="absolute bottom-[-1rem] left-1/2 transform -translate-x-1/2 w-3 h-3 bg-indigo-600 rounded-full opacity-0 group-hover:opacity-100 animate-bubble"></span>
-						</a>
-
-						<a href="#"
-							class="text-base font-semibold leading-6 text-gray-900 relative group inline-block transition-transform transform-gpu hover:translate-y-[-2px] hover:text-indigo-600">
-							Company
-							<span
-								class="absolute bottom-[-1rem] left-1/2 transform -translate-x-1/2 w-3 h-3 bg-indigo-600 rounded-full opacity-0 group-hover:opacity-100 animate-bubble"></span>
-						</a>
-					</div>
-
-
-
-					<div class="hidden lg:flex lg:flex-1 lg:justify-end">
-						<a href="#"
-							class="text-sm font-semibold leading-6 text-gray-900 hover:text-indigo-600 hover:translate-y-[-2px] transition-transform duration-300 ease-in-out">Get
-							started <span class="hover:animate-shake animate-infinite animate-ease-in-out"
-								aria-hidden="true">&rarr;</span></a>
-					</div>
-				</nav>
-				<!-- <button class="transition ease-in-out delay-150 hover:text-indigo-600 duration-300 ..."> -->
-
-				<!-- Mobile menu, show/hide based on menu open state. -->
-				<div class="small-screen hidden  md:hidden sm:hidden" role="dialog" aria-modal="true">
-					<!-- Background backdrop, show/hide based on slide-over state. -->
-					<div class="fixed inset-0 z-50"></div>
-					<div id="menu"
-						class="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
-						<div class="flex items-center justify-between">
-							<a href="#" class="-m-1.5 p-1.5">
-								<span class="sr-only">Your Company</span>
-								<img class="h-10 w-auto" src="img/Untitled.svg" alt="">
-							</a>
-							<button id="Close" type="button" class="-m-2.5 rounded-md p-2.5 text-gray-700">
-								<span class="sr-only">Close menu</span>
-								<svg class="h-7 w-7 text-indigo-600" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-									stroke="currentColor" aria-hidden="true">
-									<path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
-								</svg>
-							</button>
-						</div>
-						<div class="mt-6 flow-root">
-							<div class="-my-6 divide-y divide-gray-500/10">
-								<div class="space-y-2 py-6">
-									<a href="#"
-										class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50 hover:text-indigo-600 transition duration-300 ease-in-out">Product</a>
-									<a href="#"
-										class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50 hover:text-indigo-600 transition duration-300 ease-in-out">Features</a>
-									<a href="#"
-										class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50 hover:text-indigo-600 transition duration-300 ease-in-out">Marketplace</a>
-									<a href="#"
-										class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50 hover:text-indigo-600 transition duration-300 ease-in-out">Company</a>
-								</div>
-								<div class="py-6">
-									<a href="#"
-										class="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-indigo-600 hover:bg-gray-50">Get
-										started <span aria-hidden="true">&rarr;</span></a>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</header>
-
-
-			<script>
-				document.addEventListener("DOMContentLoaded", function () {
-					const menu = document.getElementById("menu");
-					const hamburger = document.getElementById("hamburger");
-
-					hamburger.addEventListener("click", function () {
-						gsap.fromTo(menu, { x: "100%" }, {
-							x: "0%",
-							duration: 0.5,
-							ease: "power4.out",
-						});
-					});
-				});
-			</script>
-
-
-
-
-
-
-			<div class="relative isolate px-6 pt-14 lg:px-8">
-				<div class="absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80"
-					aria-hidden="true">
-					<div class="relative left-[calc(50%-11rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 rotate-[30deg] bg-gradient-to-tr from-[#ff80b5] to-[#9089fc] opacity-30 sm:left-[calc(50%-30rem)] sm:w-[72.1875rem]"
-						style="clip-path: polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)">
-					</div>
-				</div>
-				<div class=" hero mx-auto max-w-2xl py-28 sm:py-48 lg:py-56">
-					<div class="text-center">
-						<h1
-							class="text-4xl font-bold tracking-tight text-gray-900 lg:text-6xl animate-fade-up animate-duration-[1000ms] animate-ease-linear">
-							<span
-								class="bg-gradient-to-r from-indigo-500 to-indigo-700 text-transparent bg-clip-text">Attendify</span>
-							<br>
-							Revolutionizing <span
-								class="bg-gradient-to-r from-indigo-500 to-indigo-700 text-transparent bg-clip-text">Academia</span>
-							with a <span
-								class="bg-gradient-to-r from-indigo-500 to-indigo-700 text-transparent bg-clip-text">Click!</span>
-						</h1>
-						<p
-							class="mt-6 text-lg leading-8 text-gray-600 animate-fade-up animate-duration-[1200ms] animate-ease-linear">
-							Streamlined student attendance, grades
-							tracking,
-							and
-							real-time updates for parents.</p>
-						<div class="mt-10 flex items-center justify-center gap-x-6">
-							<a href="#"
-								class="rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 hover:translate-y-[-5px] transition-transform duration-300 ease-in-out">
-								Get started
-							</a>
-
-
-							<a href="#" class="text-sm font-semibold leading-6 text-gray-900">Learn more &nbsp;<span
-									aria-hidden="true" class="animate-bounce 10s inline-block">&#8595;</span>
-							</a>
-						</div>
-					</div>
-				</div>
-
-
-
-				<div id="image_div">
-					<div class="img-animation max-w-6xl mx-auto  shadow-2xl rounded-2xl hidden lg:block md:hidden">
-						<img class="h-auto max-w-full rounded-xl" src="img/home.png" alt="image description">
-					</div>
-
-					<div class="img-animation flex items-center justify-center sm:hidden">
-						<img src="img/mobile2.webp" alt="Mobile Image" class="border-0 max-w-52 h-max object-cover">
-					</div>
-
-					<div
-						class="hidden md:flex img-animation img-animation max-w-6xl mx-auto items-center justify-center lg:hidden">
-						<img class="h-auto max-w-lg rounded-xl" src="img/tab.png" alt="Tab Image"
-							class="border-0 max-w-52 h-max object-cover">
-					</div>
-				</div>
-
-
-				<script>
-					document.addEventListener("DOMContentLoaded", function () {
-						// Slide up animation when the page is loaded
-						gsap.from(".hero", {
-							y: 100,
-							duration: 2,
-							ease: "power4.out",
-						});
-
-						gsap.from(".image_div", {
-							y: 100,
-							duration: 2,
-							ease: "power4.out",
-						});
-
-						// Enable ScrollTrigger
-						gsap.registerPlugin(ScrollTrigger);
-
-						// Invisibility and scaling animation as you scroll past the hero
-						gsap.to(".hero", {
-							opacity: 0,
-							scale: 0.8,
-							duration: 1,
-							scrollTrigger: {
-								trigger: ".hero",
-								start: "top 12%", // Adjust this value based on when you want the animation to start
-								end: "bottom top",
-								scrub: true,
-								markers: false,
-							},
-						});
-					});
-				</script>
-
-
-
-
-
-				<!-- <div class="overflow-hidden bg-white py-24 sm:py-32 lg:hidden sm:hidden">
+            <!-- <div class="overflow-hidden bg-white py-24 sm:py-32 lg:hidden sm:hidden">
                 <div class="mx-auto max-w-7xl px-6 lg:px-8">
                     <div
                         class="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 sm:gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-2">
@@ -326,132 +222,130 @@
                 </div>
             </div> -->
 
-				<div class="absolute inset-x-0 top-[calc(100%-13rem)] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[calc(100%-30rem)]"
-					aria-hidden="true">
-					<div class="relative left-[calc(50%+3rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 bg-gradient-to-tr from-[#ff80b5] to-[#9089fc] opacity-30 sm:left-[calc(50%+36rem)] sm:w-[72.1875rem]"
-						style="clip-path: polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)">
-					</div>
-				</div>
-			</div>
-		</div>
+            <div class="absolute inset-x-0 top-[calc(100%-13rem)] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[calc(100%-30rem)]"
+                aria-hidden="true">
+                <div class="relative left-[calc(50%+3rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 bg-gradient-to-tr from-[#ff80b5] to-[#9089fc] opacity-30 sm:left-[calc(50%+36rem)] sm:w-[72.1875rem]"
+                    style="clip-path: polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)">
+                </div>
+            </div>
+        </div>
+    </div>
 
-		<div class="bg-white py-28 sm:py-60 overflow-x-hidden">
-			<div class="mx-auto max-w-7xl px-6 lg:px-8">
-				<div id="featureDiv" class="mx-auto max-w-2xl lg:text-center">
-					<h2 class="text-base font-semibold leading-7 text-indigo-600">Deploy faster</h2>
-					<p class="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Everything you need to
-						deploy your app</p>
-					<p class="mt-6 text-lg leading-8 text-gray-600">Quis tellus eget adipiscing convallis sit sit eget
-						aliquet quis. Suspendisse eget egestas a elementum pulvinar et feugiat blandit at. In mi viverra
-						elit nunc.</p>
-				</div>
-				<div class="mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-4xl">
-					<dl class="grid max-w-xl grid-cols-1 gap-x-8 gap-y-10 lg:max-w-none lg:grid-cols-2 lg:gap-y-16">
-						<div id="feature1" class="relative pl-16">
-							<dt class="text-base font-semibold leading-7 text-gray-900">
-								<div
-									class="absolute left-0 top-0 flex h-10 w-10 items-center justify-center rounded-lg bg-indigo-600">
-									<svg class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-										stroke="currentColor" aria-hidden="true">
-										<path stroke-linecap="round" stroke-linejoin="round"
-											d="M12 16.5V9.75m0 0l3 3m-3-3l-3 3M6.75 19.5a4.5 4.5 0 01-1.41-8.775 5.25 5.25 0 0110.233-2.33 3 3 0 013.758 3.848A3.752 3.752 0 0118 19.5H6.75z" />
-									</svg>
-								</div>
-								Push to deploy
-							</dt>
-							<dd class="mt-2 text-base leading-7 text-gray-600">Morbi viverra dui mi arcu sed. Tellus
-								semper
-								adipiscing suspendisse semper morbi. Odio urna massa nunc massa.</dd>
-						</div>
-						<div id="feature2" class="relative pl-16">
-							<dt class="text-base font-semibold leading-7 text-gray-900">
-								<div
-									class="absolute left-0 top-0 flex h-10 w-10 items-center justify-center rounded-lg bg-indigo-600">
-									<svg class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-										stroke="currentColor" aria-hidden="true">
-										<path stroke-linecap="round" stroke-linejoin="round"
-											d="M16.5 10.5V6.75a4.5 4.5 0 10-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 002.25-2.25v-6.75a2.25 2.25 0 00-2.25-2.25H6.75a2.25 2.25 0 00-2.25 2.25v6.75a2.25 2.25 0 002.25 2.25z" />
-									</svg>
-								</div>
-								SSL certificates
-							</dt>
-							<dd class="mt-2 text-base leading-7 text-gray-600">Sit quis amet rutrum tellus ullamcorper
-								ultricies libero dolor eget. Sem sodales gravida quam turpis enim lacus amet.</dd>
-						</div>
-						<div id="feature3" class="relative pl-16">
-							<dt class="text-base font-semibold leading-7 text-gray-900">
-								<div
-									class="absolute left-0 top-0 flex h-10 w-10 items-center justify-center rounded-lg bg-indigo-600">
-									<svg class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-										stroke="currentColor" aria-hidden="true">
-										<path stroke-linecap="round" stroke-linejoin="round"
-											d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0l3.181 3.183a8.25 8.25 0 0013.803-3.7M4.031 9.865a8.25 8.25 0 0113.803-3.7l3.181 3.182m0-4.991v4.99" />
-									</svg>
-								</div>
-								Simple queues
-							</dt>
-							<dd class="mt-2 text-base leading-7 text-gray-600">Quisque est vel vulputate cursus. Risus
-								proin
-								diam nunc commodo. Lobortis auctor congue commodo diam neque.</dd>
-						</div>
-						<div id="feature4" class="relative pl-16">
-							<dt class="text-base font-semibold leading-7 text-gray-900">
-								<div
-									class="absolute left-0 top-0 flex h-10 w-10 items-center justify-center rounded-lg bg-indigo-600">
-									<svg class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-										stroke="currentColor" aria-hidden="true">
-										<path stroke-linecap="round" stroke-linejoin="round"
-											d="M7.864 4.243A7.5 7.5 0 0119.5 10.5c0 2.92-.556 5.709-1.568 8.268M5.742 6.364A7.465 7.465 0 004.5 10.5a7.464 7.464 0 01-1.15 3.993m1.989 3.559A11.209 11.209 0 008.25 10.5a3.75 3.75 0 117.5 0c0 .527-.021 1.049-.064 1.565M12 10.5a14.94 14.94 0 01-3.6 9.75m6.633-4.596a18.666 18.666 0 01-2.485 5.33" />
-									</svg>
-								</div>
-								Advanced security
-							</dt>
-							<dd class="mt-2 text-base leading-7 text-gray-600">Arcu egestas dolor vel iaculis in ipsum
-								mauris. Tincidunt mattis aliquet hac quis. Id hac maecenas ac donec pharetra eget.</dd>
-						</div>
-					</dl>
-				</div>
-			</div>
-		</div>
+    <div class="bg-white py-28 sm:py-60 overflow-x-hidden">
+        <div class="mx-auto max-w-7xl px-6 lg:px-8">
+            <div id="featureDiv" class="mx-auto max-w-2xl lg:text-center">
+                <h2 class="text-base font-semibold leading-7 text-indigo-600">Deploy faster</h2>
+                <p class="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Everything you need to
+                    deploy your app</p>
+                <p class="mt-6 text-lg leading-8 text-gray-600">Quis tellus eget adipiscing convallis sit sit eget
+                    aliquet quis. Suspendisse eget egestas a elementum pulvinar et feugiat blandit at. In mi viverra
+                    elit nunc.</p>
+            </div>
+            <div class="mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-4xl">
+                <dl class="grid max-w-xl grid-cols-1 gap-x-8 gap-y-10 lg:max-w-none lg:grid-cols-2 lg:gap-y-16">
+                    <div id="feature1" class="relative pl-16">
+                        <dt class="text-base font-semibold leading-7 text-gray-900">
+                            <div
+                                class="absolute left-0 top-0 flex h-10 w-10 items-center justify-center rounded-lg bg-indigo-600">
+                                <svg class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                    stroke="currentColor" aria-hidden="true">
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                        d="M12 16.5V9.75m0 0l3 3m-3-3l-3 3M6.75 19.5a4.5 4.5 0 01-1.41-8.775 5.25 5.25 0 0110.233-2.33 3 3 0 013.758 3.848A3.752 3.752 0 0118 19.5H6.75z" />
+                                </svg>
+                            </div>
+                            Push to deploy
+                        </dt>
+                        <dd class="mt-2 text-base leading-7 text-gray-600">Morbi viverra dui mi arcu sed. Tellus semper
+                            adipiscing suspendisse semper morbi. Odio urna massa nunc massa.</dd>
+                    </div>
+                    <div id="feature2" class="relative pl-16">
+                        <dt class="text-base font-semibold leading-7 text-gray-900">
+                            <div
+                                class="absolute left-0 top-0 flex h-10 w-10 items-center justify-center rounded-lg bg-indigo-600">
+                                <svg class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                    stroke="currentColor" aria-hidden="true">
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                        d="M16.5 10.5V6.75a4.5 4.5 0 10-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 002.25-2.25v-6.75a2.25 2.25 0 00-2.25-2.25H6.75a2.25 2.25 0 00-2.25 2.25v6.75a2.25 2.25 0 002.25 2.25z" />
+                                </svg>
+                            </div>
+                            SSL certificates
+                        </dt>
+                        <dd class="mt-2 text-base leading-7 text-gray-600">Sit quis amet rutrum tellus ullamcorper
+                            ultricies libero dolor eget. Sem sodales gravida quam turpis enim lacus amet.</dd>
+                    </div>
+                    <div id="feature3" class="relative pl-16">
+                        <dt class="text-base font-semibold leading-7 text-gray-900">
+                            <div
+                                class="absolute left-0 top-0 flex h-10 w-10 items-center justify-center rounded-lg bg-indigo-600">
+                                <svg class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                    stroke="currentColor" aria-hidden="true">
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                        d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0l3.181 3.183a8.25 8.25 0 0013.803-3.7M4.031 9.865a8.25 8.25 0 0113.803-3.7l3.181 3.182m0-4.991v4.99" />
+                                </svg>
+                            </div>
+                            Simple queues
+                        </dt>
+                        <dd class="mt-2 text-base leading-7 text-gray-600">Quisque est vel vulputate cursus. Risus proin
+                            diam nunc commodo. Lobortis auctor congue commodo diam neque.</dd>
+                    </div>
+                    <div id="feature4" class="relative pl-16">
+                        <dt class="text-base font-semibold leading-7 text-gray-900">
+                            <div
+                                class="absolute left-0 top-0 flex h-10 w-10 items-center justify-center rounded-lg bg-indigo-600">
+                                <svg class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                    stroke="currentColor" aria-hidden="true">
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                        d="M7.864 4.243A7.5 7.5 0 0119.5 10.5c0 2.92-.556 5.709-1.568 8.268M5.742 6.364A7.465 7.465 0 004.5 10.5a7.464 7.464 0 01-1.15 3.993m1.989 3.559A11.209 11.209 0 008.25 10.5a3.75 3.75 0 117.5 0c0 .527-.021 1.049-.064 1.565M12 10.5a14.94 14.94 0 01-3.6 9.75m6.633-4.596a18.666 18.666 0 01-2.485 5.33" />
+                                </svg>
+                            </div>
+                            Advanced security
+                        </dt>
+                        <dd class="mt-2 text-base leading-7 text-gray-600">Arcu egestas dolor vel iaculis in ipsum
+                            mauris. Tincidunt mattis aliquet hac quis. Id hac maecenas ac donec pharetra eget.</dd>
+                    </div>
+                </dl>
+            </div>
+        </div>
+    </div>
 
-		<div class="bg-white">
-			<div class="mx-auto max-w-7xl py-24 sm:px-6 sm:py-32 lg:px-8">
-				<div
-					class="relative isolate overflow-hidden bg-gray-900 px-6 pt-16 shadow-2xl sm:rounded-3xl sm:px-16 md:pt-24 lg:flex lg:gap-x-20 lg:px-24 lg:pt-0">
-					<svg viewBox="0 0 1024 1024"
-						class="absolute left-1/2 top-1/2 -z-10 h-[64rem] w-[64rem] -translate-y-1/2 [mask-image:radial-gradient(closest-side,white,transparent)] sm:left-full sm:-ml-80 lg:left-1/2 lg:ml-0 lg:-translate-x-1/2 lg:translate-y-0"
-						aria-hidden="true">
-						<circle cx="512" cy="512" r="512" fill="url(#759c1415-0410-454c-8f7c-9a820de03641)"
-							fill-opacity="0.7" />
-						<defs>
-							<radialGradient id="759c1415-0410-454c-8f7c-9a820de03641">
-								<stop stop-color="#7775D6" />
-								<stop offset="1" stop-color="#E935C1" />
-							</radialGradient>
-						</defs>
-					</svg>
-					<div class="mx-auto max-w-md text-center lg:mx-0 lg:flex-auto lg:py-32 lg:text-left">
-						<h2 class="text-3xl font-bold tracking-tight text-white sm:text-4xl">Boost your
-							productivity.<br>Start using our app today.</h2>
-						<p class="mt-6 text-lg leading-8 text-gray-300">Ac euismod vel sit maecenas id pellentesque eu
-							sed
-							consectetur. Malesuada adipiscing sagittis vel nulla.</p>
-						<div class="mt-10 flex items-center justify-center gap-x-6 lg:justify-start">
-							<a href="#" id="get-started-btn"
-								class="rounded-md bg-white px-3.5 py-2.5 text-sm font-semibold text-gray-900 shadow-sm hover:bg-gray-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white">Get
-								started</a>
-							<a href="#" class="text-sm font-semibold leading-6 text-white">Learn more <span
-									aria-hidden="true">→</span></a>
-						</div>
-					</div>
-					<div class="relative mt-16 h-80 lg:mt-8">
-						<img class="absolute left-0 top-0 w-[57rem] max-w-none rounded-md bg-white/5 ring-1 ring-white/10"
-							src="https://tailwindui.com/img/component-images/dark-project-app-screenshot.png"
-							alt="App screenshot" width="1824" height="1080">
-					</div>
-				</div>
-			</div>
-		</div>
+    <div class="bg-white">
+        <div class="mx-auto max-w-7xl py-24 sm:px-6 sm:py-32 lg:px-8">
+          <div class="relative isolate overflow-hidden bg-gray-900 px-6 pt-16 shadow-2xl sm:rounded-3xl sm:px-16 md:pt-24 lg:flex lg:gap-x-20 lg:px-24 lg:pt-0">
+            <svg viewBox="0 0 1024 1024" class="absolute left-1/2 top-1/2 -z-10 h-[64rem] w-[64rem] -translate-y-1/2 [mask-image:radial-gradient(closest-side,white,transparent)] sm:left-full sm:-ml-80 lg:left-1/2 lg:ml-0 lg:-translate-x-1/2 lg:translate-y-0" aria-hidden="true">
+              <circle cx="512" cy="512" r="512" fill="url(#759c1415-0410-454c-8f7c-9a820de03641)" fill-opacity="0.7" />
+              <defs>
+                <radialGradient id="759c1415-0410-454c-8f7c-9a820de03641">
+                  <stop stop-color="#7775D6" />
+                  <stop offset="1" stop-color="#E935C1" />
+                </radialGradient>
+              </defs>
+            </svg>
+            <div class="mx-auto max-w-md text-center lg:mx-0 lg:flex-auto lg:py-32 lg:text-left">
+              <h2 class="text-3xl font-bold tracking-tight text-white sm:text-4xl">Boost your productivity.<br>Start using our app today.</h2>
+              <p class="mt-6 text-lg leading-8 text-gray-300">Ac euismod vel sit maecenas id pellentesque eu sed consectetur. Malesuada adipiscing sagittis vel nulla.</p>
+              <div class="mt-10 flex items-center justify-center gap-x-6 lg:justify-start">
+                <a href="#" id="get-started-btn" class="rounded-md bg-white px-3.5 py-2.5 text-sm font-semibold text-gray-900 shadow-sm hover:bg-gray-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white">Get started</a>
+                <a href="#" class="text-sm font-semibold leading-6 text-white">Learn more <span aria-hidden="true">→</span></a>
+              </div>
+            </div>
+            <div class="relative mt-16 h-80 lg:mt-8">
+              <img class="absolute left-0 top-0 w-[57rem] max-w-none rounded-md bg-white/5 ring-1 ring-white/10" src="https://tailwindui.com/img/component-images/dark-project-app-screenshot.png" alt="App screenshot" width="1824" height="1080">
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      
+      
+
+
+
+
+
+
+
+     
 
 
 
@@ -469,338 +363,289 @@
 
 
 
+      <script>
+        gsap.registerPlugin(ScrollTrigger);
+     
+       // Set up a timeline for the animation
+       const tl = gsap.timeline({
+         scrollTrigger: {
+           trigger: ".img-animation", // Change this selector to the appropriate one for your use case
+           start: "top center", // Adjust the starting position as needed
+           end: "bottom", // Adjust the ending position as needed
+           scrub: true, // Smooth scrolling effect
+         }
+       });
+     
+       // Add animation to make the above divs invisible and increase the size
+       tl.to(".img-animation", {scale: 1.3 });
+
+     </script>
 
 
+     
+     <script>
+       gsap.from("#featureDiv", {
+         opacity: 0,
+         y: 100,
+         duration: 4,
+         ease: "power4.out",
+         scrollTrigger: {
+           trigger: "#featureDiv",
+           start: "top 90%",
+           end: "top 30%",
+           scrub: 1,
+           markers: false, 
+         },
+       });
+     </script>
+     
 
 
+     <script>
+       // Enable ScrollTrigger
+       gsap.registerPlugin(ScrollTrigger);
+     
+       gsap.from("#feature1", {
+         x: -300,
+         opacity: 0,
+         duration: 2,
+         ease: "power4.out",
+         scrollTrigger: {
+           trigger: "#featureDiv",
+           start: "top 80%",
+           end: "top 30%",
+           scrub: 1,
+           markers: false,
+         },
+       });
+     
+       gsap.from("#feature2", {
+         x: 300,
+         opacity: 0,
+         duration: 3,
+         ease: "power4.out",
+         scrollTrigger: {
+           trigger: "#featureDiv",
+           start: "top 80%",
+           end: "top 30%",
+           scrub: 1,
+           markers: false,
+         },
+       });
+     
+       gsap.from("#feature3", {
+         x: -300,
+         opacity: 0,
+         duration: 4,
+         ease: "power4.out",
+         scrollTrigger: {
+           trigger: "#feature1",
+           start: "top 80%",
+           end: "top 30%",
+           scrub: 1,
+           markers: false,
+         },
+       });
+     
+       gsap.from("#feature4", {
+         x: 300,
+         opacity: 0,
+         duration: 5,
+         ease: "power4.out",
+         scrollTrigger: {
+           trigger: "#feature1",
+           start: "top 80%",
+           end: "top 30%",
+           scrub: 1,
+           markers: false,
+         },
+       });
+     </script>
 
 
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            var hamburgerButton = document.getElementById("hamburger");
+            var largeScreenElements = document.querySelectorAll('.large-screen');
+            var smallScreenElements = document.querySelector('.small-screen');
+
+            hamburgerButton.addEventListener("click", function () {
+                // Toggle classes for small-screen elements
+                smallScreenElements.classList.toggle('md:block', !smallScreenElements.classList.contains('md:block'));
+                smallScreenElements.classList.toggle('sm:block', !smallScreenElements.classList.contains('sm:block'));
+                smallScreenElements.classList.toggle('md:hidden', !smallScreenElements.classList.contains('md:hidden'));
+                smallScreenElements.classList.toggle('sm:hidden', !smallScreenElements.classList.contains('sm:hidden'));
+            });
+        });
+    </script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            var hamburgerButton = document.getElementById("hamburger");
+            var largeScreenElements = document.querySelectorAll('.large-screen');
+            var smallScreenElements = document.querySelector('.small-screen');
+
+            hamburgerButton.addEventListener("click", function () {
+                // Toggle classes for small-screen elements
+                smallScreenElements.classList.toggle('hidden');
+            });
+        });
+    </script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            var closeButton = document.getElementById("Close");
+            var smallScreenElements = document.querySelector('.small-screen');
+            var largeScreenElements = document.querySelectorAll('.large-screen');
+
+            closeButton.addEventListener("click", function () {
+                // Toggle classes for small-screen elements
+                smallScreenElements.classList.toggle('md:hidden');
+                smallScreenElements.classList.toggle('sm:hidden');
+                smallScreenElements.classList.toggle('md:block');
+                smallScreenElements.classList.toggle('sm:block');
+
+                // Toggle classes for large-screen elements
+                largeScreenElements.forEach(function (element) {
+                    element.classList.toggle('lg:hidden');
+                    element.classList.toggle('md:block');
+                    element.classList.toggle('sm:block');
+                });
+            });
+        });
+    </script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            var closeButton = document.getElementById("Close");
+            var smallScreenElements = document.querySelector('.small-screen');
+            var largeScreenElements = document.querySelectorAll('.large-screen');
+
+            closeButton.addEventListener("click", function () {
+                // Toggle classes for small-screen elements
+                smallScreenElements.classList.toggle('hidden');
+
+                // Toggle classes for large-screen elements
+                largeScreenElements.forEach(function (element) {
+                    element.classList.toggle('lg:hidden');
+                    element.classList.toggle('md:block');
+                    element.classList.toggle('sm:block');
+                });
+            });
+        });
+    </script>
 
 
-
-
-
-
-		<script>
-			gsap.registerPlugin(ScrollTrigger);
-
-			// Set up a timeline for the animation
-			const tl = gsap.timeline({
-				scrollTrigger: {
-					trigger: ".img-animation", // Change this selector to the appropriate one for your use case
-					start: "top center", // Adjust the starting position as needed
-					end: "bottom", // Adjust the ending position as needed
-					scrub: true, // Smooth scrolling effect
-				}
-			});
-
-			// Add animation to make the above divs invisible and increase the size
-			tl.to(".img-animation", { scale: 1.3 });
-
-		</script>
-
-
-
-		<script>
-			gsap.from("#featureDiv", {
-				opacity: 0,
-				y: 100,
-				duration: 4,
-				ease: "power4.out",
-				scrollTrigger: {
-					trigger: "#featureDiv",
-					start: "top 90%",
-					end: "top 30%",
-					scrub: 1,
-					markers: false,
-				},
-			});
-		</script>
-
-
-
-		<script>
-			// Enable ScrollTrigger
-			gsap.registerPlugin(ScrollTrigger);
-
-			gsap.from("#feature1", {
-				x: -300,
-				opacity: 0,
-				duration: 2,
-				ease: "power4.out",
-				scrollTrigger: {
-					trigger: "#featureDiv",
-					start: "top 80%",
-					end: "top 30%",
-					scrub: 1,
-					markers: false,
-				},
-			});
-
-			gsap.from("#feature2", {
-				x: 300,
-				opacity: 0,
-				duration: 3,
-				ease: "power4.out",
-				scrollTrigger: {
-					trigger: "#featureDiv",
-					start: "top 80%",
-					end: "top 30%",
-					scrub: 1,
-					markers: false,
-				},
-			});
-
-			gsap.from("#feature3", {
-				x: -300,
-				opacity: 0,
-				duration: 4,
-				ease: "power4.out",
-				scrollTrigger: {
-					trigger: "#feature1",
-					start: "top 80%",
-					end: "top 30%",
-					scrub: 1,
-					markers: false,
-				},
-			});
-
-			gsap.from("#feature4", {
-				x: 300,
-				opacity: 0,
-				duration: 5,
-				ease: "power4.out",
-				scrollTrigger: {
-					trigger: "#feature1",
-					start: "top 80%",
-					end: "top 30%",
-					scrub: 1,
-					markers: false,
-				},
-			});
-		</script>
-
-
-		<script>
-			document.addEventListener("DOMContentLoaded", function () {
-				var hamburgerButton = document.getElementById("hamburger");
-				var largeScreenElements = document.querySelectorAll('.large-screen');
-				var smallScreenElements = document.querySelector('.small-screen');
-
-				hamburgerButton.addEventListener("click", function () {
-					// Toggle classes for small-screen elements
-					smallScreenElements.classList.toggle('md:block', !smallScreenElements.classList.contains('md:block'));
-					smallScreenElements.classList.toggle('sm:block', !smallScreenElements.classList.contains('sm:block'));
-					smallScreenElements.classList.toggle('md:hidden', !smallScreenElements.classList.contains('md:hidden'));
-					smallScreenElements.classList.toggle('sm:hidden', !smallScreenElements.classList.contains('sm:hidden'));
-				});
-			});
-		</script>
-		<script>
-			document.addEventListener("DOMContentLoaded", function () {
-				var hamburgerButton = document.getElementById("hamburger");
-				var largeScreenElements = document.querySelectorAll('.large-screen');
-				var smallScreenElements = document.querySelector('.small-screen');
-
-				hamburgerButton.addEventListener("click", function () {
-					// Toggle classes for small-screen elements
-					smallScreenElements.classList.toggle('hidden');
-				});
-			});
-		</script>
-
-		<script>
-			document.addEventListener("DOMContentLoaded", function () {
-				var closeButton = document.getElementById("Close");
-				var smallScreenElements = document.querySelector('.small-screen');
-				var largeScreenElements = document.querySelectorAll('.large-screen');
-
-				closeButton.addEventListener("click", function () {
-					// Toggle classes for small-screen elements
-					smallScreenElements.classList.toggle('md:hidden');
-					smallScreenElements.classList.toggle('sm:hidden');
-					smallScreenElements.classList.toggle('md:block');
-					smallScreenElements.classList.toggle('sm:block');
-
-					// Toggle classes for large-screen elements
-					largeScreenElements.forEach(function (element) {
-						element.classList.toggle('lg:hidden');
-						element.classList.toggle('md:block');
-						element.classList.toggle('sm:block');
-					});
-				});
-			});
-		</script>
-		<script>
-			document.addEventListener("DOMContentLoaded", function () {
-				var closeButton = document.getElementById("Close");
-				var smallScreenElements = document.querySelector('.small-screen');
-				var largeScreenElements = document.querySelectorAll('.large-screen');
-
-				closeButton.addEventListener("click", function () {
-					// Toggle classes for small-screen elements
-					smallScreenElements.classList.toggle('hidden');
-
-					// Toggle classes for large-screen elements
-					largeScreenElements.forEach(function (element) {
-						element.classList.toggle('lg:hidden');
-						element.classList.toggle('md:block');
-						element.classList.toggle('sm:block');
-					});
-				});
-			});
-		</script>
-
-
-		<footer class="footer-1 bg-gray-100 py-8 sm:py-12">
-			<div class="container mx-auto px-4">
-				<div class="sm:flex sm:flex-wrap sm:-mx-4 md:py-4">
-					<div class="px-4 sm:w-1/2 md:w-1/4 xl:w-1/6">
-						<h5 class="text-xl font-bold mb-6">Features</h5>
-						<ul class="list-none footer-links">
-							<li class="mb-2">
-								<a href="#"
-									class="border-b border-solid border-transparent hover:border-purple-800 hover:text-purple-800">Cool
-									stuff</a>
-							</li>
-							<li class="mb-2">
-								<a href="#"
-									class="border-b border-solid border-transparent hover:border-purple-800 hover:text-purple-800">Random
-									feature</a>
-							</li>
-							<li class="mb-2">
-								<a href="#"
-									class="border-b border-solid border-transparent hover:border-purple-800 hover:text-purple-800">Team
-									feature</a>
-							</li>
-							<li class="mb-2">
-								<a href="#"
-									class="border-b border-solid border-transparent hover:border-purple-800 hover:text-purple-800">Stuff
-									for developers</a>
-							</li>
-							<li class="mb-2">
-								<a href="#"
-									class="border-b border-solid border-transparent hover:border-purple-800 hover:text-purple-800">Another
-									one</a>
-							</li>
-							<li class="mb-2">
-								<a href="#"
-									class="border-b border-solid border-transparent hover:border-purple-800 hover:text-purple-800">Last
-									time</a>
-							</li>
-						</ul>
-					</div>
-					<div class="px-4 sm:w-1/2 md:w-1/4 xl:w-1/6 mt-8 sm:mt-0">
-						<h5 class="text-xl font-bold mb-6">Resources</h5>
-						<ul class="list-none footer-links">
-							<li class="mb-2">
-								<a href="#"
-									class="border-b border-solid border-transparent hover:border-purple-800 hover:text-purple-800">Resource</a>
-							</li>
-							<li class="mb-2">
-								<a href="#"
-									class="border-b border-solid border-transparent hover:border-purple-800 hover:text-purple-800">Resource
-									name</a>
-							</li>
-							<li class="mb-2">
-								<a href="#"
-									class="border-b border-solid border-transparent hover:border-purple-800 hover:text-purple-800">Another
-									resource</a>
-							</li>
-							<li class="mb-2">
-								<a href="#"
-									class="border-b border-solid border-transparent hover:border-purple-800 hover:text-purple-800">Final
-									resource</a>
-							</li>
-						</ul>
-					</div>
-					<div class="px-4 sm:w-1/2 md:w-1/4 xl:w-1/6 mt-8 md:mt-0">
-						<h5 class="text-xl font-bold mb-6">About</h5>
-						<ul class="list-none footer-links">
-							<li class="mb-2">
-								<a href="#"
-									class="border-b border-solid border-transparent hover:border-purple-800 hover:text-purple-800">Team</a>
-							</li>
-							<li class="mb-2">
-								<a href="#"
-									class="border-b border-solid border-transparent hover:border-purple-800 hover:text-purple-800">Locations</a>
-							</li>
-							<li class="mb-2">
-								<a href="#"
-									class="border-b border-solid border-transparent hover:border-purple-800 hover:text-purple-800">Privacy</a>
-							</li>
-							<li class="mb-2">
-								<a href="#"
-									class="border-b border-solid border-transparent hover:border-purple-800 hover:text-purple-800">Terms</a>
-							</li>
-						</ul>
-					</div>
-					<div class="px-4 sm:w-1/2 md:w-1/4 xl:w-1/6 mt-8 md:mt-0">
-						<h5 class="text-xl font-bold mb-6">Help</h5>
-						<ul class="list-none footer-links">
-							<li class="mb-2">
-								<a href="#"
-									class="border-b border-solid border-transparent hover:border-purple-800 hover:text-purple-800">Support</a>
-							</li>
-							<li class="mb-2">
-								<a href="#"
-									class="border-b border-solid border-transparent hover:border-purple-800 hover:text-purple-800">Help
-									Center</a>
-							</li>
-							<li class="mb-2">
-								<a href="#"
-									class="border-b border-solid border-transparent hover:border-purple-800 hover:text-purple-800">Contact
-									Us</a>
-							</li>
-						</ul>
-					</div>
-					<div class="px-4 mt-4 sm:w-1/3 xl:w-1/6 sm:mx-auto xl:mt-0 xl:ml-auto">
-						<h5 class="text-xl font-bold mb-6 sm:text-center xl:text-left">Stay connected</h5>
-						<div class="flex sm:justify-center xl:justify-start">
-							<a href=""
-								class="w-8 h-8 border border-2 border-gray-400 rounded-full text-center py-1 text-gray-600 hover:text-white hover:bg-blue-600 hover:border-blue-600">
-								<i class="fab fa-facebook"></i>
-							</a>
-							<a href=""
-								class="w-8 h-8 border border-2 border-gray-400 rounded-full text-center py-1 ml-2 text-gray-600 hover:text-white hover:bg-blue-400 hover:border-blue-400">
-								<i class="fab fa-twitter"></i>
-							</a>
-							<a href=""
-								class="w-8 h-8 border border-2 border-gray-400 rounded-full text-center py-1 ml-2 text-gray-600 hover:text-white hover:bg-red-600 hover:border-red-600">
-								<i class="fab fa-google-plus-g"></i>
-							</a>
-						</div>
-					</div>
-				</div>
-
-				<div class="sm:flex sm:flex-wrap sm:-mx-4 mt-6 pt-6 sm:mt-12 sm:pt-12 border-t">
-					<div class="sm:w-full px-4 md:w-1/6">
-						<strong>FWR</strong>
-					</div>
-					<div class="px-4 sm:w-1/2 md:w-1/4 mt-4 md:mt-0">
-						<h6 class="font-bold mb-2">Address</h6>
-						<address class="not-italic mb-4 text-sm">
-							123 6th St.<br>
-							Melbourne, FL 32904
-						</address>
-					</div>
-					<div class="px-4 sm:w-1/2 md:w-1/4 mt-4 md:mt-0">
-						<h6 class="font-bold mb-2">Free Resources</h6>
-						<p class="mb-4 text-sm">Use our HTML blocks for <strong>FREE</strong>.<br>
-							<em>All are MIT License</em>
-						</p>
-					</div>
-					<div class="px-4 md:w-1/4 md:ml-auto mt-6 sm:mt-4 md:mt-0">
-						<button class="px-4 py-2 bg-purple-800 hover:bg-purple-900 rounded text-white">Get
-							Started</button>
-					</div>
-				</div>
-			</div>
-		</footer>
-	</div>
-
-
-
+    <footer class="footer-1 bg-gray-100 py-8 sm:py-12">
+        <div class="container mx-auto px-4">
+          <div class="sm:flex sm:flex-wrap sm:-mx-4 md:py-4">
+            <div class="px-4 sm:w-1/2 md:w-1/4 xl:w-1/6">
+              <h5 class="text-xl font-bold mb-6">Features</h5>
+              <ul class="list-none footer-links">
+                <li class="mb-2">
+                  <a href="#" class="border-b border-solid border-transparent hover:border-purple-800 hover:text-purple-800">Cool stuff</a>
+                </li>
+                <li class="mb-2">
+                  <a href="#" class="border-b border-solid border-transparent hover:border-purple-800 hover:text-purple-800">Random feature</a>
+                </li>
+                <li class="mb-2">
+                  <a href="#" class="border-b border-solid border-transparent hover:border-purple-800 hover:text-purple-800">Team feature</a>
+                </li>
+                <li class="mb-2">
+                  <a href="#" class="border-b border-solid border-transparent hover:border-purple-800 hover:text-purple-800">Stuff for developers</a>
+                </li>
+                <li class="mb-2">
+                  <a href="#" class="border-b border-solid border-transparent hover:border-purple-800 hover:text-purple-800">Another one</a>
+                </li>
+                <li class="mb-2">
+                  <a href="#" class="border-b border-solid border-transparent hover:border-purple-800 hover:text-purple-800">Last time</a>
+                </li>
+              </ul>
+            </div>
+            <div class="px-4 sm:w-1/2 md:w-1/4 xl:w-1/6 mt-8 sm:mt-0">
+              <h5 class="text-xl font-bold mb-6">Resources</h5>
+              <ul class="list-none footer-links">
+                <li class="mb-2">
+                  <a href="#" class="border-b border-solid border-transparent hover:border-purple-800 hover:text-purple-800">Resource</a>
+                </li>
+                <li class="mb-2">
+                  <a href="#" class="border-b border-solid border-transparent hover:border-purple-800 hover:text-purple-800">Resource name</a>
+                </li>
+                <li class="mb-2">
+                  <a href="#" class="border-b border-solid border-transparent hover:border-purple-800 hover:text-purple-800">Another resource</a>
+                </li>
+                <li class="mb-2">
+                  <a href="#" class="border-b border-solid border-transparent hover:border-purple-800 hover:text-purple-800">Final resource</a>
+                </li>
+              </ul>
+            </div>
+            <div class="px-4 sm:w-1/2 md:w-1/4 xl:w-1/6 mt-8 md:mt-0">
+              <h5 class="text-xl font-bold mb-6">About</h5>
+              <ul class="list-none footer-links">
+                <li class="mb-2">
+                  <a href="#" class="border-b border-solid border-transparent hover:border-purple-800 hover:text-purple-800">Team</a>
+                </li>
+                <li class="mb-2">
+                  <a href="#" class="border-b border-solid border-transparent hover:border-purple-800 hover:text-purple-800">Locations</a>
+                </li>
+                <li class="mb-2">
+                  <a href="#" class="border-b border-solid border-transparent hover:border-purple-800 hover:text-purple-800">Privacy</a>
+                </li>
+                <li class="mb-2">
+                  <a href="#" class="border-b border-solid border-transparent hover:border-purple-800 hover:text-purple-800">Terms</a>
+                </li>
+              </ul>
+            </div>
+            <div class="px-4 sm:w-1/2 md:w-1/4 xl:w-1/6 mt-8 md:mt-0">
+              <h5 class="text-xl font-bold mb-6">Help</h5>
+              <ul class="list-none footer-links">
+                <li class="mb-2">
+                  <a href="#" class="border-b border-solid border-transparent hover:border-purple-800 hover:text-purple-800">Support</a>
+                </li>
+                <li class="mb-2">
+                  <a href="#" class="border-b border-solid border-transparent hover:border-purple-800 hover:text-purple-800">Help Center</a>
+                </li>
+                <li class="mb-2">
+                  <a href="#" class="border-b border-solid border-transparent hover:border-purple-800 hover:text-purple-800">Contact Us</a>
+                </li>
+              </ul>
+            </div>
+            <div class="px-4 mt-4 sm:w-1/3 xl:w-1/6 sm:mx-auto xl:mt-0 xl:ml-auto">
+              <h5 class="text-xl font-bold mb-6 sm:text-center xl:text-left">Stay connected</h5>
+              <div class="flex sm:justify-center xl:justify-start">
+                <a href="" class="w-8 h-8 border border-2 border-gray-400 rounded-full text-center py-1 text-gray-600 hover:text-white hover:bg-blue-600 hover:border-blue-600">
+                  <i class="fab fa-facebook"></i>
+                </a>
+                <a href="" class="w-8 h-8 border border-2 border-gray-400 rounded-full text-center py-1 ml-2 text-gray-600 hover:text-white hover:bg-blue-400 hover:border-blue-400">
+                  <i class="fab fa-twitter"></i>
+                </a>
+                <a href="" class="w-8 h-8 border border-2 border-gray-400 rounded-full text-center py-1 ml-2 text-gray-600 hover:text-white hover:bg-red-600 hover:border-red-600">
+                  <i class="fab fa-google-plus-g"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+      
+          <div class="sm:flex sm:flex-wrap sm:-mx-4 mt-6 pt-6 sm:mt-12 sm:pt-12 border-t">
+            <div class="sm:w-full px-4 md:w-1/6">
+              <strong>FWR</strong>
+            </div>
+            <div class="px-4 sm:w-1/2 md:w-1/4 mt-4 md:mt-0">
+              <h6 class="font-bold mb-2">Address</h6>
+              <address class="not-italic mb-4 text-sm">
+                123 6th St.<br>
+                Melbourne, FL 32904
+              </address>
+            </div>
+            <div class="px-4 sm:w-1/2 md:w-1/4 mt-4 md:mt-0">
+              <h6 class="font-bold mb-2">Free Resources</h6>
+              <p class="mb-4 text-sm">Use our HTML blocks for <strong>FREE</strong>.<br>
+                <em>All are MIT License</em></p>
+            </div>
+            <div class="px-4 md:w-1/4 md:ml-auto mt-6 sm:mt-4 md:mt-0">
+              <button class="px-4 py-2 bg-purple-800 hover:bg-purple-900 rounded text-white">Get Started</button>
+            </div>
+          </div>
+        </div>
+      </footer>
 </body>
 
 </html>
