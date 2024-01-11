@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tailwind Food</title>
     <link rel="stylesheet" href="css/styles.css">
-    <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/gsap@3.9.1/dist/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.4/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.4/gsap.min.js"></script>
@@ -62,8 +61,8 @@
 
 
                 <div class="hidden lg:flex lg:flex-1 lg:justify-end">
-                    <a href="#" class="text-sm font-semibold leading-6 text-gray-900 hover:text-indigo-600">Get started<span
-                            aria-hidden="true">&rarr;</span></a>
+                    <a href="#" class="text-sm font-semibold leading-6 text-gray-900 hover:text-indigo-600 hover:translate-y-[-2px] transition-transform duration-300 ease-in-out">Get started <span
+                    class="hover:animate-shake animate-infinite animate-ease-in-out"        aria-hidden="true">&rarr;</span></a>
                 </div>
             </nav>
             <!-- <button class="transition ease-in-out delay-150 hover:text-indigo-600 duration-300 ..."> -->
@@ -139,18 +138,21 @@
             </div>
             <div class=" hero mx-auto max-w-2xl py-28 sm:py-48 lg:py-56">
                 <div class="text-center">
-                    <h1 class="text-4xl font-bold tracking-tight text-gray-900 lg:text-6xl animate-fade-up animate-duration-[1000ms] animate-ease-linear"> <span
-                            class="text-indigo-600">Attendify</span><br>
-                        Revolutionizing <span class="text-indigo-600 ">Academia</span> with a <span
-                            class="text-indigo-600">Click!</span></h1>
+                    <h1 class="text-4xl font-bold tracking-tight text-gray-900 lg:text-6xl animate-fade-up animate-duration-[1000ms] animate-ease-linear"> <span class="bg-gradient-to-r from-indigo-500 to-indigo-700 text-transparent bg-clip-text">Attendify</span>
+                      <br>
+                        Revolutionizing <span class="bg-gradient-to-r from-indigo-500 to-indigo-700 text-transparent bg-clip-text">Academia</span> with a <span
+                            class="bg-gradient-to-r from-indigo-500 to-indigo-700 text-transparent bg-clip-text">Click!</span></h1>
                     <p class="mt-6 text-lg leading-8 text-gray-600 animate-fade-up animate-duration-[1200ms] animate-ease-linear">Streamlined student attendance, grades
                         tracking,
                         and
                         real-time updates for parents.</p>
                     <div class="mt-10 flex items-center justify-center gap-x-6">
-                        <a href="#"
-                            class="rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Get
-                            started</a>
+                      <a href="#"
+   class="rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 hover:translate-y-[-5px] transition-transform duration-300 ease-in-out">
+   Get started
+</a>
+
+                   
                         <a href="#" class="text-sm font-semibold leading-6 text-gray-900">Learn more &nbsp;<span
                                 aria-hidden="true" class="animate-bounce 10s inline-block">&#8595;</span>
                         </a>
@@ -229,7 +231,7 @@
         </div>
     </div>
 
-    <div class="bg-white py-40 sm:py-60 overflow-x-hidden">
+    <div class="bg-white py-28 sm:py-60 overflow-x-hidden">
         <div class="mx-auto max-w-7xl px-6 lg:px-8">
             <div id="featureDiv" class="mx-auto max-w-2xl lg:text-center">
                 <h2 class="text-base font-semibold leading-7 text-indigo-600">Deploy faster</h2>
@@ -322,7 +324,7 @@
               <h2 class="text-3xl font-bold tracking-tight text-white sm:text-4xl">Boost your productivity.<br>Start using our app today.</h2>
               <p class="mt-6 text-lg leading-8 text-gray-300">Ac euismod vel sit maecenas id pellentesque eu sed consectetur. Malesuada adipiscing sagittis vel nulla.</p>
               <div class="mt-10 flex items-center justify-center gap-x-6 lg:justify-start">
-                <a href="#" class="rounded-md bg-white px-3.5 py-2.5 text-sm font-semibold text-gray-900 shadow-sm hover:bg-gray-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white">Get started</a>
+                <a href="#" id="get-started-btn" class="rounded-md bg-white px-3.5 py-2.5 text-sm font-semibold text-gray-900 shadow-sm hover:bg-gray-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white">Get started</a>
                 <a href="#" class="text-sm font-semibold leading-6 text-white">Learn more <span aria-hidden="true">→</span></a>
               </div>
             </div>
@@ -420,7 +422,7 @@
        gsap.from("#feature2", {
          x: 300,
          opacity: 0,
-         duration: 2,
+         duration: 3,
          ease: "power4.out",
          scrollTrigger: {
            trigger: "#featureDiv",
@@ -434,7 +436,7 @@
        gsap.from("#feature3", {
          x: -300,
          opacity: 0,
-         duration: 2,
+         duration: 4,
          ease: "power4.out",
          scrollTrigger: {
            trigger: "#feature1",
@@ -448,7 +450,7 @@
        gsap.from("#feature4", {
          x: 300,
          opacity: 0,
-         duration: 2,
+         duration: 5,
          ease: "power4.out",
          scrollTrigger: {
            trigger: "#feature1",
