@@ -193,6 +193,77 @@
                 </div>
             </div>
         </footer>
+
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                var hamburgerButton = document.getElementById("hamburger");
+                var largeScreenElements = document.querySelectorAll('.large-screen');
+                var smallScreenElements = document.querySelector('.small-screen');
+
+                hamburgerButton.addEventListener("click", function () {
+                    // Toggle classes for small-screen elements
+                    smallScreenElements.classList.toggle('md:block', !smallScreenElements.classList.contains('md:block'));
+                    smallScreenElements.classList.toggle('sm:block', !smallScreenElements.classList.contains('sm:block'));
+                    smallScreenElements.classList.toggle('md:hidden', !smallScreenElements.classList.contains('md:hidden'));
+                    smallScreenElements.classList.toggle('sm:hidden', !smallScreenElements.classList.contains('sm:hidden'));
+                });
+            });
+        </script>
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                var hamburgerButton = document.getElementById("hamburger");
+                var largeScreenElements = document.querySelectorAll('.large-screen');
+                var smallScreenElements = document.querySelector('.small-screen');
+
+                hamburgerButton.addEventListener("click", function () {
+                    // Toggle classes for small-screen elements
+                    smallScreenElements.classList.toggle('hidden');
+                });
+            });
+        </script>
+
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                var closeButton = document.getElementById("Close");
+                var smallScreenElements = document.querySelector('.small-screen');
+                var largeScreenElements = document.querySelectorAll('.large-screen');
+
+                closeButton.addEventListener("click", function () {
+                    // Toggle classes for small-screen elements
+                    smallScreenElements.classList.toggle('md:hidden');
+                    smallScreenElements.classList.toggle('sm:hidden');
+                    smallScreenElements.classList.toggle('md:block');
+                    smallScreenElements.classList.toggle('sm:block');
+
+                    // Toggle classes for large-screen elements
+                    largeScreenElements.forEach(function (element) {
+                        element.classList.toggle('lg:hidden');
+                        element.classList.toggle('md:block');
+                        element.classList.toggle('sm:block');
+                    });
+                });
+            });
+        </script>
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                var closeButton = document.getElementById("Close");
+                var smallScreenElements = document.querySelector('.small-screen');
+                var largeScreenElements = document.querySelectorAll('.large-screen');
+
+                closeButton.addEventListener("click", function () {
+                    // Toggle classes for small-screen elements
+                    smallScreenElements.classList.toggle('hidden');
+
+                    // Toggle classes for large-screen elements
+                    largeScreenElements.forEach(function (element) {
+                        element.classList.toggle('lg:hidden');
+                        element.classList.toggle('md:block');
+                        element.classList.toggle('sm:block');
+                    });
+                });
+            });
+        </script>
+
         
 
 
